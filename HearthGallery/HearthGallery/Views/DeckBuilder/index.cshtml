@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/app")
+<header class="intro" ng-controller="DeckBuilderController">
+    <div class="intro-body">
+        <div class="container">
+            <div ng-show="classSelection">
+                <h1>Select Your Class</h1>
+                <div class="row">
+                    <img ng-click="setDruid()" title="druid" class="classicons" src="~/Images/classicons/druid.png" />
+                    <img ng-click="setHunter()" title="hunter" class="classicons" src="~/Images/classicons/hunter.png" />
+                    <img ng-click="setMage()" title="mage" class="classicons" src="~/Images/classicons/mage.png" />
+                </div>
+                <div class="row">
+                    <img ng-click="setPaladin()" title="paladin" class="classicons" src="~/Images/classicons/paladin.png" />
+                    <img ng-click="setPriest()" title="priest" class="classicons" src="~/Images/classicons/priest.png" />
+                    <img ng-click="setRogue()" title="rogue" class="classicons" src="~/Images/classicons/rogue.png" />
+                </div>
+                <div class="row">
+                    <img ng-click="setShaman()" title="shaman" class="classicons" src="~/Images/classicons/shaman.png" />
+                    <img ng-click="setWarlock()" title="warlock" class="classicons" src="~/Images/classicons/warlock.png" />
+                    <img ng-click="setWarrior()" title="warrior" class="classicons" src="~/Images/classicons/warrior.png" />
+                </div>
+            </div>
+            <div ng-show="deckBuilding">
+                <h1>Deck Builder</h1>
+                <div class=row>
+                    <div class="cardselection">
+                        <div class="row">
+                            <p class="hero" ng-click="sortHero()">{{activeHero}}</p>
+                            <p class="hero" ng-click="sortNeutral()">Neutral</p>
+                        </div>
+                        <div class="row">
+                            <img ng-click="sortMana(0)" class="numbericons" title="0 Mana" src="~/Images/numbers/0.png" />
+                            <img ng-click="sortMana(1)" class="numbericons" title="1 Mana" src="~/Images/numbers/1.png" />
+                            <img ng-click="sortMana(2)" class="numbericons" title="2 Mana" src="~/Images/numbers/2.png" />
+                            <img ng-click="sortMana(3)" class="numbericons" title="3 Mana" src="~/Images/numbers/3.png" />
+                            <img ng-click="sortMana(4)" class="numbericons" title="4 Mana" src="~/Images/numbers/4.png" />
+                            <img ng-click="sortMana(5)" class="numbericons" title="5 Mana" src="~/Images/numbers/5.png" />
+                            <img ng-click="sortMana(6)" class="numbericons" title="6 Mana" src="~/Images/numbers/6.png" />
+                            <img ng-click="sortMana(7)" class="numbericons" title="7 Mana" src="~/Images/numbers/7.png" />
+                            <br />
+                            <p ng-click="clearFilter()">Clear Filter</p>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <img ng-click="addCard(cards[index].id, cards[index].name, cards[index].cost)" class="card" src="{{cards[index].img}}" alt="" />
+                                <img ng-click="addCard(cards[index + 1].id, cards[index + 1].name, cards[index + 1].cost)" class="card" src="{{cards[index + 1].img}}" alt="" />
+                                <img ng-click="addCard(cards[index + 2].id, cards[index + 2].name, cards[index + 2].cost)" class="card" src="{{cards[index + 2].img}}" alt="" />
+                            </div>
+                            <div class="row">
+                                <img ng-click="addCard(cards[index + 3].id, cards[index + 3].name, cards[index + 3].cost)" class="card" src="{{cards[index + 3].img}}" alt="" />
+                                <img ng-click="addCard(cards[index + 4].id, cards[index + 4].name, cards[index + 4].cost)" class="card" src="{{cards[index + 4].img}}" alt="" />
+                                <img ng-click="addCard(cards[index + 5].id, cards[index + 5].name, cards[index + 5].cost)" class="card" src="{{cards[index + 5].img}}" alt="" />
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="arrowleft">
+                                <img ng-click="prevPage()" title="previous page" class="arrowicons" src="~/Images/backward.png" />
+                            </div>
+                            <div class="arrowright">
+                                <img ng-click="nextPage()" title="next page" class="arrowicons" src="~/Images/forward.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="decks">
+                        <br />
+                        <br />
+                        <div class="row">
+                            <p class="deckname">{{deckName}}</p>
+                            <p class="cardsindeck">{{cardsInDeck}}/30</p>
+                        </div>
+                        <div class="row" ng-repeat="card in deck">
+                            <p class="cardcost">{{card.cost}}</p>
+                            <p class="cardname">{{card.name}}</p>
+                            <p class="cardquantity">{{card.quantity}}</p></[>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <button type="button" class="btn btn-warning decksubmit" ng-click="submitDeck()">Submit</button>
+                    <input type="text" placeholder="Deck Name:" class="form-control nameinput" ng-model="deckName">
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</header>

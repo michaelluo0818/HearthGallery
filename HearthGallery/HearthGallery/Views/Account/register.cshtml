@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/app")
+<header class="intro" ng-controller="RegisterController">>
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <form ng-submit="register()">
+                        <div class="form-group">
+                            <label for="userName">User Name:</label>
+                            <input type="text" class="form-control" ng-model="registerForm.userName" id="userName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" ng-model="registerForm.password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" class="form-control" id="confirmPassword" ng-model="registerForm.confirmPassword" />
+                        </div>
+                        <br />
+                        <br />
+                        <button type="submit" class="btn btn-default">Register</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row"></div>
+        </div>
+    </div>
+</header>

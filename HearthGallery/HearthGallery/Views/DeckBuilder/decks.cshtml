@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/app")
+<!-- Navigation -->
+<header class="intro" ng-controller="DeckController">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row" ng-hide="deckSelected">
+                <div class="left">
+                    <div class="row">
+                        <img title="druid" class="classicons" src="~/Images/classicons/druid.png" />
+                        <p ng-repeat="deck in druidDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img title="hunter" class="classicons" src="~/Images/classicons/hunter.png" />
+                        <p ng-repeat="deck in hunterDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img title="mage" class="classicons" src="~/Images/classicons/mage.png" />
+                        <p ng-repeat="deck in mageDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img title="paladin" class="classicons" src="~/Images/classicons/paladin.png" />
+                        <p ng-repeat="deck in paladinDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img title="priest" class="classicons" src="~/Images/classicons/priest.png" />
+                        <p ng-repeat="deck in priestDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="row">
+                        <img title="rogue" class="classicons" src="~/Images/classicons/rogue.png" />
+                        <p ng-repeat="deck in rogueDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img itle="shaman" class="classicons" src="~/Images/classicons/shaman.png" />
+                        <p ng-repeat="deck in shamanDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img itle="warlock" class="classicons" src="~/Images/classicons/warlock.png" />
+                        <p ng-repeat="deck in warlockDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                    <div class="row">
+                        <img title="warrior" class="classicons" src="~/Images/classicons/warrior.png" />
+                        <p ng-repeat="deck in warriorDecks" ng-click="deckDetail(deck.hero, deck.id)">{{deck.name}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="deckSelected">
+                <br />
+                <br />
+                <br />
+                <br />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cost</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="card in selectedDeck">
+                            <td>{{card.cost}}</td>
+                            <td>{{card.name}}</td>
+                            <td>{{card.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <br />
+                <p ng-click="reset()">Clear Selection</p>
+            </div>
+        </div>
+    </div>
+</header>

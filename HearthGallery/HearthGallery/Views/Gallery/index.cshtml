@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/app")
+<!-- Intro Header -->
+<header class="intro" ng-controller="GalleryController">
+    <div class="intro-body">
+        <div class="container">
+            <h1>Card Gallery</h1>
+            <div class="selection">
+                <p>Sort by Classes</p>
+                <div>
+                    <img ng-click="sortNeutral()" title="neutral" class="selectionicons" src="~/Images/classicons/neutral.png" />
+                    <img ng-click="sortRogue()" title="rogue" class="selectionicons" src="~/Images/classicons/rogue.png" />
+                </div>
+                <div>
+                    <img ng-click="sortDruid()" title="druid" class="selectionicons" src="~/Images/classicons/druid.png" />
+                    <img ng-click="sortShaman()" title="shaman" class="selectionicons" src="~/Images/classicons/shaman.png" />
+                </div>
+                <div>
+                    <img ng-click="sortHunter()" title="hunter" class="selectionicons" src="~/Images/classicons/hunter.png" />
+                    <img ng-click="sortWarlock()" title="warlock" class="selectionicons" src="~/Images/classicons/warlock.png" />
+                </div>
+                <div>
+                    <img ng-click="sortMage()" title="mage" class="selectionicons" src="~/Images/classicons/mage.png" />
+                    <img ng-click="sortWarrior()" title="warrior" class="selectionicons" src="~/Images/classicons/warrior.png" />
+                </div>
+                <div>
+                    <img ng-click="sortPaladin()" title="paladin" class="selectionicons" src="~/Images/classicons/paladin.png" />
+                    <img ng-click="sortPriest()" title="priest" class="selectionicons" src="~/Images/classicons/priest.png" />
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="display">
+                        <img src="{{cards[index].img}}" alt="" />
+                        <hr />
+                        <div>
+                            <p class="flavortext">{{cards[index].flavor}}</p>
+                        </div>
+                    </div>
+                    <div class="display">
+                        <img src="{{cards[index + 1].img}}" alt="" />
+                        <hr />
+                        <div>
+                            <p class="flavortext">{{cards[index + 1].flavor}}</p>
+                        </div>
+                    </div>
+                    <div class="display">
+                        <img src="{{cards[index + 2].img}}" alt="" />
+                        <hr />
+                        <div>
+                            <p class="flavortext">{{cards[index + 2].flavor}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="arrowleftgallery">
+                        <img ng-click="prevPage()" title="previous page" class="arrowicons" src="~/Images/backward.png" />
+                    </div>
+                    <div class="arrowrightgallery">
+                        <img ng-click="nextPage()" title="next page" class="arrowicons" src="~/Images/forward.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
